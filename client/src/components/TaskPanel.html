@@ -1,0 +1,32 @@
+<ul>
+  <li>
+      <a ng-click="$ctrl.orderTasks('dueDate')" href="" >Order By Due Date</a>
+  </li>
+  <li>
+      <a ng-click="$ctrl.orderTasks('name')" href="" >Order By Name</a>
+  </li>
+  <li>
+      <a ng-click="$ctrl.orderTasks('Priority')" href="" >Order By Priority</a>
+  </li>
+</ul>
+
+<table>
+  <thead>
+      <th>
+        <td colspan="3">{{$ctrl.taskType}}</td>
+      </th>
+      <th>
+          <td>Name</td>
+          <td>Due Date</td>
+          <td>Priority</td>
+        </th>
+  </thead>
+  
+  <tbody>    
+      <tr ng-repeat="task in $ctrl.tasks">
+          <td>{{task.name}}</td>
+          <td>{{task.dueDate}}</td>
+          <td>{{task.priority}}</td>
+      </tr>
+  </tbody>
+</table>

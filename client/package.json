@@ -1,0 +1,16 @@
+{
+  "name": "frondend",
+  "version": "1.0.0",
+  "description": "ddd",
+  "main": "dd",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "start http://localhost:4201/src & serve --port 4201"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "lodash": "^4.17.4"
+  }
+}

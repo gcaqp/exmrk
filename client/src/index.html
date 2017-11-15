@@ -1,0 +1,23 @@
+<html ng-app="Exam">
+  <title></title>
+  <head>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/src/app.js"></script>
+    <script src="/src/proxy.js"></script>
+    <script src="/src/components/TaskEditor.js"></script>
+    <script src="/src/components/TaskPanel.js"></script>
+    <script src="/src/components/TaskTypeContainer.js"></script>
+  </head>
+  <body ng-controller="mainController">
+    <table>
+      <tr>
+        <td>
+            <task-type-container task-type="Pending"></task-type-container>
+        </td>
+        <td>
+            <task-type-container task-type="Overdue"></task-type-container>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<a ng-click="$ctrl.save()" href="">Save</a>
+<a ng-click="$ctrl.New()" href="">New</a>
+<table ng-form="frmTask">
+  <thead>
+      <th>
+          <td colspan="3">{{$ctrl.taskType}}</td>
+        </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" ng-model="$ctrl.taskItem.name" name="nName" required/> </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="text" ng-model="$ctrl.taskItem.dueDate" name="ndueDate" required /> </td>
+      </tr>
+    <tr>
+        <td></td>
+        <td><input type="number" ng-model="$ctrl.taskItem.priority" name="nPriority" required /> </td>
+      </tr>
+  </tbody>
+</table>
