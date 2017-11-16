@@ -9,13 +9,14 @@
     <script src="/src/components/TaskTypeContainer.js"></script>
   </head>
   <body ng-controller="mainController">
+    <task-editor task-type="$ctrl.taskType" on-saved="saved()"></task-editor>
     <table>
       <tr>
         <td>
-            <task-type-container task-type="Pending"></task-type-container>
+            <task-panel task-type="'Pending'" on-refresh="refreshP"></task-panel>
         </td>
         <td>
-            <task-type-container task-type="Overdue"></task-type-container>
+            <task-panel task-type="'Overdue'" on-refresh="refreshO"></task-panel>
         </td>
       </tr>
     </table>

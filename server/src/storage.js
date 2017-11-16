@@ -62,11 +62,17 @@ module.exports =function(storageMemory){
     var d = getData();
     item.id = (_.maxBy(d, x=>x.id) || 0) + 1;
     item.createdAt = new Date()
-    var result = validations(item)
-    if (result !== false)
+    var isValid = validations(item)
+    if (isValid === false){
       d.push(item);
+      console.log("Inserted");
+    }
     else
-      return validations;
+    {
+      console.log("invalid insert");
+      return isValid;
+    }
+      
     setData(d);
     return item;
   }

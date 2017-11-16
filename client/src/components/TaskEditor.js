@@ -11,7 +11,7 @@
       onSaved: "&"
     }
   })
-  .controller('taskEditorController', ['proxyApi', '$filter', function(proxyApi, $filter){
+  .controller('taskEditorController', ['proxyApi', '$filter','$scope', function(proxyApi, $filter, $scope){
         var vm = this;
     
         vm.$onInit = onInit;
@@ -21,11 +21,11 @@
           vm.New= New;
         }
         function New(){
-          debugger;
           vm.taskItem = null;
         }
         function Save(){
-          debugger;
+          if($scope.frmTask.$invalid) alert("Invalid Inputs");
+
           if(!vm.taskItem || !vm.taskItem.id){
             proxyApi().createItem(vm.taskItem).then(function(res){
               alert("The task was created.");

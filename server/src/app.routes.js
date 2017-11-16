@@ -9,8 +9,11 @@ exports.addRoutes = function (app, storage) {
       priority: req.query.priority
     }
     var result = storage.addItemData(task);
-    if(result instanceof Array);
-      res.status(500).json(result)  
+    if(result instanceof Array){
+      res.status(500).json(result);
+      return;
+    }
+        
     res.status(200).json(task)
   }
 
@@ -27,8 +30,10 @@ exports.addRoutes = function (app, storage) {
 
   updateTaskPOST = function(req, res){
     var result = storage.updateItemData(req.body);
-    if(result instanceof Array);
+    if(result instanceof Array){
       res.json(500, result);
+      return;
+    }
     res.json(200, task);
   }
   app.post  ('/task/create', createTaskPOST);

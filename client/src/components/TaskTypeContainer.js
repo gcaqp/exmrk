@@ -5,7 +5,8 @@
     templateUrl: '/src/components/TaskTypeContainer.html',
     controller: 'taskTypeContainerController',
     bindings: {
-      taskType: "="
+      taskType: "=",
+      onRefresh:"=?"
     }
   })
   .controller('taskTypeContainerController', ['proxyApi', function(proxyApi){
@@ -13,7 +14,7 @@
     var vm = this;
 
     vm.$onInit = onInit;
-
+    
     function onInit(){
 
     }

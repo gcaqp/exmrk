@@ -5,11 +5,9 @@ var bodyParser = require('body-parser')
 var storage = require("./src/storage")(cache);
 var app = express();
 
-
-  app.set('port', 3000);
-  app.set('ipaddr', "127.0.0.1");
-  app.use(bodyParser.json());
-  app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
 
   app.use((err, req, res, next) => {
     if (err) {
