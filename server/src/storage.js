@@ -30,13 +30,14 @@ module.exports =function(storageMemory){
   function validations (item){
     var validationError = { }
     var errors = [{ValidationError:validationError}]
-    vali(item, "name", errors);
-    vali(item, "dueDate", errors, 
-         function(){return !moment(item.dueDate, "YYYY-MM-DD").isValid()},
+    vali(item, "name", validationError);
+    vali(item, "priotity", validationError);
+    vali(item, "dueDate", validationError, 
+         function(){ return !moment(item.dueDate, "YYYY-MM-DD", true).isValid()},
          "Validation error: \"null\" is not of type \"date\"", 
          "date");
     for (var key in validationError) {
-      if (object.hasOwnProperty(key)) {
+      if (validationError.hasOwnProperty(key)) {
         return errors;
       }
     }

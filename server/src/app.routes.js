@@ -10,15 +10,15 @@ exports.addRoutes = function (app, storage) {
     }
     var result = storage.addItemData(task);
     if(result instanceof Array){
+      console.log("error")
       res.status(500).json(result);
       return;
     }
-        
     res.status(200).json(task)
   }
 
   getTasksGET = function(req, res){
-    res.json(200, storage.getAll());
+    res.status(200).json(storage.getAll());
     res.end();
   }
 
@@ -39,5 +39,5 @@ exports.addRoutes = function (app, storage) {
   app.post  ('/task/create', createTaskPOST);
   app.get   ('/task', getTasksGET);
   app.delete('/task/destroy/:id', destroyTaskDELETE);
-  app.post  ('/task/update', updateTaskPOST);
+  app.post  ('/task/update/:id', updateTaskPOST);
 };

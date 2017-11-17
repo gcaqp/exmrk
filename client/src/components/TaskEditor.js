@@ -31,7 +31,25 @@
               alert("The task was created.");
               vm.onSaved()
             }, function(res){
-              
+              if(ng.isArray(res.data) && 
+                res.data.length>0){
+                  var validationsErrors = res.data[0].ValidationError;
+                  var builder = ''
+                  for (var key in validationsErrors) {
+                    if (validationsErrors.hasOwnProperty(key)) {
+                      var element = validationsErrors[key];
+                      builder += key + ": \n";
+                      for (var index = 0; index < element.length; index++) {
+                        var element1 = element[index];
+                        builder += element1.message + "\n";  
+                      }
+                    }
+                  }
+                  alert(builder)
+              }
+              else{
+                alert("an error has occurred");
+              }
             });
           }
           else{
